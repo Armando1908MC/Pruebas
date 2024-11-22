@@ -20,33 +20,3 @@ def criba_eratostenes(n):
     # Filtrar los índices que son primos
     return [i for i, primo in enumerate(es_primo) if primo]
 
-def primos_y_factorizacion(n):
-    """
-    Encuentra los primos hasta n y genera la factorización de un número dado.
-    :param n: Límite superior para los primos.
-    :return: Lista de números primos.
-    """
-    primos = criba_eratostenes(n)
-    print(f"Primos hasta {n}: {primos}")
-
-    # Factorización de números
-    def factoriza(num):
-        factores = []
-        for p in primos:
-            while num % p == 0:
-                factores.append(p)
-                num //= p
-            if num == 1:
-                break
-        if num > 1:
-            factores.append(num)  # Si queda un factor mayor que sqrt(n)
-        return factores
-
-    # Ejemplo de factorización
-    print("\nFactorización de números:")
-    for i in range(2, n + 1):
-        print(f"{i}: {factoriza(i)}")
-
-if __name__ == "__main__":
-    numero = int(input("Introduce un número límite: "))
-    primos_y_factorizacion(numero)
