@@ -20,3 +20,4 @@ def criba_eratostenes(n):
     # Filtrar los índices que son primos
     return [i for i, primo in enumerate(es_primo) if primo]
 
+###################################################################################################################################################
